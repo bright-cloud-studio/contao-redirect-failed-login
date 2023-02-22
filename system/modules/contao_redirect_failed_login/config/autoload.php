@@ -13,5 +13,5 @@
 /* Register the classes */
 ClassLoader::addClasses(array
 (
-    'Bcs\Module\ModLoginRedirect'               => 'system/modules/contao_redirect_failed_login/library/Bcs/Module/ModLoginRedirect.php'
+    'Bcs\Module\ModuleLoginRedirect'               => 'system/modules/contao_redirect_failed_login/library/Bcs/Module/ModLoginRedirect.php'
 ));
