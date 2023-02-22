@@ -10,4 +10,4 @@
  * @license    http://opensource.org/licenses/lgpl-3.0.html
 **/
 
-$GLOBALS['FE_MOD']['user']['loginFailed'] = 'Bcs\ModuleLoginFailed';
+$GLOBALS['FE_MOD']['user']['login'] = 'Bcs\Module\ModLoginRedirect';
