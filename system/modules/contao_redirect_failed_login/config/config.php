@@ -10,6 +10,6 @@
  * @license    http://opensource.org/licenses/lgpl-3.0.html
 **/
 
-use Bcs;
+use Bcs\FormFailed\ModuleLoginTest;
 
 $GLOBALS['FE_MOD']['user']['login'] = ModuleLoginTest::class;
