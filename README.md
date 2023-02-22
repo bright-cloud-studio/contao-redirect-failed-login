@@ -1,4 +1,4 @@
-# Bright Cloud Studio's Add News Fields
+# Bright Cloud Studio's Contao Redirect Failed Login
 ## Extension to Contao's Login module to allow redirecting to a selected page after a failed login attempt.
 
 This package was created due to a client's website having multiple login errors. Users were forgetting their username, forgetting their password, or not being case sensitive when entering their details. The solution, set up a page with detailed instructions that users are forwarded to after a failed login attempt.
