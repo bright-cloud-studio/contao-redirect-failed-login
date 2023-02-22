@@ -10,6 +10,6 @@
  * @license    http://opensource.org/licenses/lgpl-3.0.html
 **/
 
-use Bcs\ModuleLogin;
+use Bcs;
 
 $GLOBALS['FE_MOD']['user']['login'] = ModuleLogin::class;
