@@ -15,7 +15,7 @@ namespace Bcs\Module;
 
 use Contao\Config;
 
-class ModuleLogin extends \Contao\ModuleLogin
+class ModuleLoginRedirect extends \Contao\ModuleLogin
 {
     public function generate()
     {
