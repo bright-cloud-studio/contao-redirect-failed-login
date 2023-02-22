@@ -12,4 +12,4 @@
 
 use Bcs;
 
-$GLOBALS['FE_MOD']['user']['login'] = ModuleLogin::class;
+$GLOBALS['FE_MOD']['user']['login'] = ModuleLoginTest::class;
