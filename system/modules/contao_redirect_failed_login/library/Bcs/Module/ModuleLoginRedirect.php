@@ -14,13 +14,6 @@ namespace Bcs\Module;
 use Contao;
 use Contao\Config;
 
-use Scheb\TwoFactorBundle\Security\Authentication\Exception\InvalidTwoFactorCodeException;
-use Scheb\TwoFactorBundle\Security\TwoFactor\Event\TwoFactorAuthenticationEvent;
-use Scheb\TwoFactorBundle\Security\TwoFactor\Event\TwoFactorAuthenticationEvents;
-use Symfony\Component\Security\Core\Exception\AuthenticationException;
-use Symfony\Component\Security\Core\Exception\TooManyLoginAttemptsAuthenticationException;
-
-
 class ModuleLoginRedirect extends \Contao\ModuleLogin
 {
     public function generate()
@@ -34,15 +27,16 @@ class ModuleLoginRedirect extends \Contao\ModuleLogin
         // perform our normal compilation functions
         parent::compile();
         
-        // get authorization values
-        $container = \System::getContainer();
-        $authorizationChecker = $container->get('security.authorization_checker');
-        
         // get our selected failure page
         $objTarget = $this->objModel->getRelated('jumpToFailed');
         
         // if we have a failure page selected
         if($objTarget != null) {
+            
+            // get authorization values
+            $container = \System::getContainer();
+            $authorizationChecker = $container->get('security.authorization_checker');
+            
             
             // if value isnt empty, meaning we failed the previous login
             if($this->Template->value != "") {
@@ -56,8 +50,12 @@ class ModuleLoginRedirect extends \Contao\ModuleLogin
                     // forward ourselves to that page
                     header("Location: " . $strRedirect);
                     
+                    // this will stop any other successive forwards, doesn't work without this surprisingly.
+                    echo " ";
+                    
                 }
             }
+            
         }
         
     }
