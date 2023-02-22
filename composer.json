@@ -1,0 +1,36 @@
+{
+    "name":"bright-cloud-studio/contao-redirect-failed-login",
+    "description":"Extension to Contao's Login module to allow redirecting to a selected page after a failed login attempt",
+    "homepage": "http://brightcloudstudio.com/",
+    "keywords":["contao", "login", "redirect", "fail", "failed"],
+    "type":"contao-module",
+    "license":"LGPL-3.0-or-later",
+    "authors":[
+        {
+            "name":"Bright Cloud Studio",
+            "homepage":"https://brightcloudstudio.com"
+        }
+    ],
+    "require":{
+        "php": "^8.0",
+        "contao/core-bundle": "^4.9"
+    },
+    "require-dev": {
+        "contao/manager-plugin": "^2.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Bcs\\": [
+                "system/modules/contao_redirect_failed_login/library/Bcs"
+            ]
+        }
+    },
+    "extra": {
+        "contao": {
+            "sources": {
+                "system/modules/contao_redirect_failed_login": "system/modules/contao_redirect_failed_login"
+            }
+        }
+    },
+    "minimum-stability": "dev"
+}
