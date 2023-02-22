@@ -1,11 +1,11 @@
 <?php
 
 /**
- * Bright Cloud Studio's Contao Redirect Failed Login
+ * Bright Cloud Studio's Modal Gallery
  *
- * Copyright (C) 2023 Bright Cloud Studio
+ * Copyright (C) 2021 Bright Cloud Studio
  *
- * @package    bright-cloud-studio/contao-redirect-failed-login
+ * @package    bright-cloud-studio/modal-gallery
  * @link       https://www.brightcloudstudio.com/
  * @license    http://opensource.org/licenses/lgpl-3.0.html
 **/
@@ -13,6 +13,13 @@
 namespace Bcs\Module;
 use Contao;
 use Contao\Config;
+
+use Scheb\TwoFactorBundle\Security\Authentication\Exception\InvalidTwoFactorCodeException;
+use Scheb\TwoFactorBundle\Security\TwoFactor\Event\TwoFactorAuthenticationEvent;
+use Scheb\TwoFactorBundle\Security\TwoFactor\Event\TwoFactorAuthenticationEvents;
+use Symfony\Component\Security\Core\Exception\AuthenticationException;
+use Symfony\Component\Security\Core\Exception\TooManyLoginAttemptsAuthenticationException;
+
 
 class ModuleLoginRedirect extends \Contao\ModuleLogin
 {
