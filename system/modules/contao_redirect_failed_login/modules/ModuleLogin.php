@@ -39,47 +39,6 @@ class ModuleLogin extends Module
 	private $targetPath = '';
 
 	/**
-	 * Display a login form
-	 *
-	 * @return string
-	 */
-	public function generate()
-	{
-		$request = System::getContainer()->get('request_stack')->getCurrentRequest();
-
-		if ($request && System::getContainer()->get('contao.routing.scope_matcher')->isBackendRequest($request))
-		{
-			$objTemplate = new BackendTemplate('be_wildcard');
-			$objTemplate->wildcard = '### ' . $GLOBALS['TL_LANG']['FMD']['login'][0] . ' ###';
-			$objTemplate->title = $this->headline;
-			$objTemplate->id = $this->id;
-			$objTemplate->link = $this->name;
-			$objTemplate->href = StringUtil::specialcharsUrl(System::getContainer()->get('router')->generate('contao_backend', array('do'=>'themes', 'table'=>'tl_module', 'act'=>'edit', 'id'=>$this->id)));
-
-			return $objTemplate->parse();
-		}
-
-		// If the form was submitted and the credentials were wrong, take the target
-		// path from the submitted data as otherwise it would take the current page
-		if ($request && $request->isMethod('POST'))
-		{
-			$this->targetPath = base64_decode($request->request->get('_target_path'));
-		}
-		elseif ($this->redirectBack && $request && $request->query->has('redirect'))
-		{
-			$uriSigner = System::getContainer()->get('uri_signer');
-
-			// We cannot use $request->getUri() here as we want to work with the original URI (no query string reordering)
-			if ($uriSigner->check($request->getSchemeAndHttpHost() . $request->getBaseUrl() . $request->getPathInfo() . (null !== ($qs = $request->server->get('QUERY_STRING')) ? '?' . $qs : '')))
-			{
-				$this->targetPath = $request->query->get('redirect');
-			}
-		}
-
-		return parent::generate();
-	}
-
-	/**
 	 * Generate the module
 	 */
 	protected function compile()
@@ -162,7 +121,7 @@ class ModuleLogin extends Module
 		}
 
 		// Redirect to the jumpTo page
-		elseif (($objTarget = $this->objModel->getRelated('jumpTo')) instanceof PageModel)
+		elseif (($objTarget = $this->objModel->getRelated('jumpToFailed')) instanceof PageModel)
 		{
 			/** @var PageModel $objTarget */
 			$strRedirect = $objTarget->getAbsoluteUrl();
