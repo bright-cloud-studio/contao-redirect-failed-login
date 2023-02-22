@@ -1,5 +1,5 @@
 # Bright Cloud Studio's Contao Redirect Failed Login
-## Extends the default Contao Login form front end module to allow selecting of a page to foward users to after failed login attempts
+## Extends the default Contao 'Login form' front end module to allow selecting of a page to foward users to after failed login attempts
 
 This package was created due to a client's website having multiple login errors. Users were forgetting their username, forgetting their password, or not being case sensitive when entering their details. The solution, set up a page with detailed instructions that users are forwarded to after a failed login attempt.
 
