@@ -13,7 +13,7 @@
  /* Extend the tl_module palettes */
 $GLOBALS['TL_DCA']['tl_module']['palettes']['login'] = str_replace(',redirectBack;', ',jumpToFailed,redirectBack;', $GLOBALS['TL_DCA']['tl_module']['palettes']['login']);
 
-$GLOBALS['TL_DCA']['tl_module']['fields']['news_issue'] = array
+$GLOBALS['TL_DCA']['tl_module']['fields']['jumpToFailed'] = array
 (
   'label'                   => &$GLOBALS['TL_LANG']['tl_module']['jumpToFailed'],
   'inputType'               => 'pageTree',
