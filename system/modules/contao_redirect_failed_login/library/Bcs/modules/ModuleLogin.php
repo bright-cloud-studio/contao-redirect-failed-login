@@ -14,15 +14,22 @@ namespace Bcs;
 
 use Contao\Config;
 
-class ModuleLogin extends \Contao\ModuleLogin
+class ModuleLoginTest extends \Contao\ModuleLogin
 {
     public function generate()
     {
+        
+        echo "we ded";
+        die();
+        
         return parent::generate();
     }
 
     protected function compile()
     {
+        echo "we ded";
+        die();
+        
         /** @var PageModel $objPage */
 		global $objPage;
 
