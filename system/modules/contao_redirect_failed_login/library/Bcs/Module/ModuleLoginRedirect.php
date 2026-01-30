@@ -1,18 +1,13 @@
 <?php
 
 /**
- * Bright Cloud Studio's Modal Gallery
- *
- * Copyright (C) 2021 Bright Cloud Studio
- *
- * @package    bright-cloud-studio/modal-gallery
- * @link       https://www.brightcloudstudio.com/
- * @license    http://opensource.org/licenses/lgpl-3.0.html
+ * Copyright (C) 2026 Bright Cloud Studio
 **/
 
 namespace Bcs\Module;
 use Contao;
 use Contao\Config;
+use Contao\System;
 
 class ModuleLoginRedirect extends \Contao\ModuleLogin
 {
@@ -34,7 +29,7 @@ class ModuleLoginRedirect extends \Contao\ModuleLogin
         if($objTarget != null) {
             
             // get authorization values
-            $container = \System::getContainer();
+            $container = System::getContainer();
             $authorizationChecker = $container->get('security.authorization_checker');
             
             
